@@ -3,47 +3,76 @@
 //package warmup1
 package warmup1
 
+import "math"
+
 // SleepIn takes two boolean arguments (for weekday and vacation) and returns a
 // boolean. The parameter w is true if it is a weekday, and the parameter v is
 // true if we are on vacation. We sleep in if it is not a weekday or we're on
 // vacation. Return true if we sleep in.
 func SleepIn(weekday, vacation bool) bool {
-	return false
+	if !weekday || vacation {
+		return true
+	} else {
+		return false
+	}
 }
 
 // We have two monkeys, a and b, and the parameters a and b indicate
 // if each is smiling. We are in trouble if they are both smiling or if neither
 // of them is smiling. Return True if we are in trouble.
 func MonkeyTrouble(a, b bool) bool {
-	return false
+	if a && b {
+		return true
+	} else if !a && !b {
+		return true
+	} else {
+		return false
+	}
 }
 
 // Given two int values, return their sum. Unless the two values are the same, then
 // return double their sum.
 func SumDouble(a, b int) int {
-	return 0
+	if a != b {
+		return a + b
+	} else {
+		return 2 * (a + b)
+	}
 }
 
 // Given an int n, return the absolute difference between n and 21, except return
 // double the absolute difference if n is over 21.
 func Diff21(n int) int {
-	return 0
+	if n > 21 {
+		return 2 * (n - 21)
+	} else {
+		return int(math.Abs(float64(n - 21)))
+	}
 }
 
 // We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23.
 // We are in trouble if the parrot is talking and the hour is before 7 or after 20.
 // Return True if we are in trouble.
 func ParrotTrouble(t bool, h int) bool {
+	if (h < 7 || h > 20) && t == true {
+		return true
+	}
 	return false
 }
 
 // Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10.
 func Makes10(a, b int) bool {
+	if a == 10 || b == 10 || a+b == 10 {
+		return true
+	}
 	return false
 }
 
 //Given an int n, return true if it is within 10 of 100 or 200.
 func NearHundred(n int) bool {
+	if (n >= 90 && n < 100) || (n >= 190 && n < 200) {
+		return true
+	}
 	return false
 }
 
